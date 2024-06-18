@@ -2,12 +2,12 @@
 
 NeilA Ground Station Interface is developed for the Teknofest 7th Model Satellite Competition to act as a ground station. The project visualizes the data received every second from an ESP module.
 
-# Serial Data Format
+## Serial Data Format
 The program expects data from the serial port in the following format:
 ```bash
 <team_no>,<packet_no>,<mission_time>,<payload_pressure>,<container_pressure>,<payload_altitude>,<container_altitude>,<altitude>,<speed>,<temperature>,<voltage>,<gps_latitude>,<gps_longitude>,<gps_altitude>,<container_latitude>,<container_longitude>,<container_altitude>,<statu>,<pitch>,<roll>,<yaw>,<turn_num>,<video_state>,<microprocessor_temperature>
 ```
-# Example Data
+## Example Data
 Here is an example of the expected data format:
 ```bash
 356356,12,2023-06-18 12:34:56,1013.25,1012.78,500,450,50,5.0,25.4,3.7,40.7128,-74.0060,10,40.7127,-74.0059,15,1,0.5,0.0,0.0,3,1,40.0
