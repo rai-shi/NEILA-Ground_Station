@@ -40,6 +40,14 @@ stopFlag = False
 global datas
 datas = []
 
+global basePath
+basePath = os.path.join(os.getcwd(), "NeilA-UI")
+
+global logoPath
+logoPath= os.path.join(basePath, "ktu_uzay_neila.png")
+
+global telemetryPath 
+telemetryPath = os.path.join(basePath, "TELEMETRI VERILERI/telemetri.csv")
 
 root = Tk()
 
@@ -52,21 +60,21 @@ font = Font(family = "Helvetica", size = 12)
 root.option_add("*TCombobox*Listbox*Font", font)
 
 #iconbitmap
-root.iconphoto(True, ImageTk.PhotoImage(Image.open("ktu_uzay_neila.png"))) 
+root.iconphoto(True, ImageTk.PhotoImage(Image.open(logoPath))) 
 
 #logo
-logo = ImageTk.PhotoImage(Image.open("ktu_uzay_neila.png").resize((200,152)))
+logo = ImageTk.PhotoImage(Image.open(logoPath).resize((200,152)))
 logo_label = Label( root, image=logo, bg="white", width=232 ) 
 logo_label.place(x=5,y=50)
 
 #----------------------------------------------------------------------------------------------------------------------------------
 
 # dosyayı temizleme
-if (os.path.exists("TELEMETRI VERILERI/telemetri.csv")):
+if (os.path.exists(telemetryPath)):
 
     print("yol bulundu")
 
-    datafile_csv = open("TELEMETRI VERILERI/telemetri.csv", "a", newline='')
+    datafile_csv = open(telemetryPath, "a", newline='')
     datafile_csv.seek(0)
     datafile_csv.truncate(0)
 
@@ -893,11 +901,14 @@ camera_label.grid(row=0,column=0)
 
 global capture
 
-capture = cv2.VideoCapture(1) 
+capture = cv2.VideoCapture(0) # if external camera, change 0 to 1 (1 is external camera, 0 is internal camera) 
 
 global out
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('neila.mp4', fourcc, 20.0, (640, 480))
+
+global videoPath 
+videoPath = os.path.join(basePath, "NeilA-UI/neila.mp4")
+out = cv2.VideoWriter(videoPath, fourcc, 20.0, (640, 480))
 
 global stopCam
 stopCam = False
