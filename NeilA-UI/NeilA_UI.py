@@ -42,12 +42,17 @@ datas = []
 
 global basePath
 basePath = os.path.join(os.getcwd(), "NeilA-UI")
+if not os.path.exists(basePath):
+    basePath = os.path.join(os.getcwd())
+print(basePath)
 
 global logoPath
 logoPath= os.path.join(basePath, "ktu_uzay_neila.png")
+print(logoPath)
 
 global telemetryPath 
-telemetryPath = os.path.join(basePath, "TELEMETRI VERILERI/telemetri.csv")
+telemetryPath = os.path.join(basePath, "TELEMETRI VERILERI","telemetri.csv")
+print(telemetryPath)
 
 root = Tk()
 
